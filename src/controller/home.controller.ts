@@ -19,13 +19,15 @@ export class HomeController {
         });
        
         res.on('end', function () {
+                // 解析
                 const $ = cheerio.load(html)
                 // console.log('整个页面',html);
+                //定位元素 获取到lg 下的img src值
                 $('#lg #s_lg_img').each((index,el)=>{
                   
                     let srcAer = $(el).attr("src");
                     getsrcAer = srcAer;
-                    // console.log('src图片:',srcAer);
+                    // console.log('src图片路径:',srcAer);
                 })
         });
         
